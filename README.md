@@ -115,60 +115,6 @@ tags = tagger.generate_tags(
 )
 ```
 
-### Working with Different Domains
-
-The system automatically adapts to different domains:
-
-```python
-# Technical content
-tech_text = """
-Machine learning algorithms are transforming big data processing. 
-Python libraries like TensorFlow make neural networks accessible 
-for deep learning applications.
-"""
-tech_tags = tagger.tag_text(tech_text)
-# Output: ['machine learning', 'big data', 'neural networks', 'deep learning', 'python']
-
-# Medical content
-medical_text = """
-The patient presented with acute respiratory symptoms. 
-Blood tests revealed elevated white blood cell count. 
-Treatment included antibiotics and respiratory therapy.
-"""
-medical_tags = tagger.tag_text(medical_text)
-# Output: ['respiratory symptoms', 'blood tests', 'white blood cell', 'treatment', 'antibiotics']
-```
-
-## 🧪 Running Tests
-
-Test the system with the built-in examples:
-
-```bash
-python dynamic_tagger_step1.py
-```
-
-This will run tests on three different domains:
-- Social media marketing text
-- Technical/programming content  
-- Medical/healthcare text
-
-## 🔧 Component Testing
-
-Each component can be tested individually:
-
-```python
-# Test phrase extraction
-from dynamic_tagger_step1 import KeyPhraseExtractor
-
-extractor = KeyPhraseExtractor()
-phrases = extractor.extract_phrases(text)
-
-# Test scoring
-from dynamic_tagger_step1 import PhraseScorer
-
-scorer = PhraseScorer()
-scored_phrases = scorer.calculate_phrase_scores(phrases, len(text.split()))
-```
 
 ## 📁 Project Structure
 
