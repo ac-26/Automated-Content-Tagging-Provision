@@ -1,31 +1,34 @@
-# Dynamic Text Tagger
+# 🔖 Universal Text Tagger
 
-An intelligent, domain-agnostic text tagging system that automatically extracts relevant tags from any text using advanced NLP techniques, linguistic pattern matching, and semantic understanding.
+An intelligent, domain-agnostic tagging system that extracts high-quality tags from **any input text** using a rich combination of linguistic features, semantic embeddings, and customizable scoring logic.
+
+---
 
 ## 🌟 Features
 
-- **Domain-Agnostic**: Works across any domain without pre-training on specific categories
-- **Intelligent Phrase Extraction**: Uses spaCy for linguistic analysis to identify meaningful phrases
-- **Multi-Factor Scoring**: Combines frequency, specificity, domain relevance, and semantic similarity
-- **Redundancy Filtering**: Automatically removes similar/overlapping tags
-- **Semantic Understanding**: Uses sentence embeddings to ensure tag relevance
-- **Flexible API**: Simple interfaces for different use cases
+- **POS Tagging**: Extracts syntactic structure using spaCy’s part-of-speech tags.
+- **NER Integration**: Detects named entities (e.g., people, orgs, products) for meaningful tag enrichment.
+- **Noun Chunking**: Identifies base noun phrases for better phrase-level understanding.
+- **Multi-Factor Scoring**: Prioritizes tags using frequency, specificity, length, grammar, and semantic relevance.
+- **Confidence Weighting**: Tags are returned with relevance scores for downstream applications.
+- **Redundancy Filtering**: Removes overlapping or semantically similar tags.
+- **Semantic Embeddings**: Ensures tag relevancy and tag redundancy using cosine similarity with sentence transformers.
+
+---
 
 ## 🚀 Quick Start
 
-### 🤗 Try it Online
+### 🤗 Try It Online
 
-**[Live Demo on Hugging Face Spaces](https://huggingface.co/spaces/ac2607/content-tagger)**
+**[Live Demo on Hugging Face Spaces](https://huggingface.co/spaces/ac2607/content-tagger)**  
+> No installation required — test with your own input text.
 
-Test the tagger instantly without any installation!
+---
 
-### Installation
+### 🛠 Installation
 
 ```bash
-# Install required packages
 pip install spacy scikit-learn sentence-transformers numpy
-
-# Download spaCy language model
 python -m spacy download en_core_web_sm
 ```
 
@@ -115,26 +118,10 @@ tags = tagger.generate_tags(
 )
 ```
 
-
-## 📁 Project Structure
-
-```
-dynamic-text-tagger/
-├── dynamic_tagger_step1.py    # Main implementation file
-├── README.md                  # This file
-└── requirements.txt           # Dependencies
-```
-
 ## 📋 Requirements
 
-Create a `requirements.txt` file:
+Install the `requirements.txt` file:
 
-```txt
-spacy>=3.0
-scikit-learn
-sentence-transformers
-numpy
-```
 
 ## 🎯 Performance Characteristics
 
@@ -175,8 +162,4 @@ This project is provided as-is for educational and research purposes.
 
 **Input**: "Data scientists use machine learning algorithms for predictive analytics and pattern recognition in big data applications."
 
-**Output**: `['data scientists', 'machine learning', 'predictive analytics', 'pattern recognition', 'big data']`
-
-**Input**: "Social media marketing requires engaging content and A/B testing to optimize performance."
-
-**Output**: `['social media marketing', 'engaging content', 'a/b testing', 'performance', 'optimization']`
+**Output**: `['data scientists', 'machine learning algorithms', 'predictive analytics', 'pattern recognition', 'big data']`
